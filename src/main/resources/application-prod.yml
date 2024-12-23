@@ -1,0 +1,18 @@
+spring:
+  ai:
+    ollama:
+      base-url: http://open-webui-ollama.open-webui.svc.cluster.local:11434
+      embedding:
+        enabled: true
+        model: "nomic-embed-text"
+    vectorstore:
+      pgvector:
+      index-type: HNSW
+      distance-type: COSINE_DISTANCE
+      dimensions: 1536
+      batching-strategy: TOKEN_COUNT # Controls how documents are batched for embedding
+      max-document-batch-size: 10000 # Maximum number of documents per batch
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: llm_assistant
+    password: pw123
